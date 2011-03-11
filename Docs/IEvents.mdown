@@ -1,0 +1,13 @@
+Class: IEvents {#IEvents}
+=======================
+
+IEvents Method: constructor {#IEvents:constructor}
+----------------------------------------------
+
+### Syntax
+	var cls = new IEvents([options]);
+
+### Arguments
+1. options (see options)
+
+### Options
