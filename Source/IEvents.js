@@ -29,10 +29,11 @@ var IEvents = this.IEvents = new Class({
         type = removeOn(type);
 
         if (/:\latched/.test(type)){
-            type.replace(':latched','');
+            type = type.replace(':latched','');
 
-            if (!this.$latched) this.$latched = {type:args};    
-            else this.$latched[type] = {args:args, delay:delay || 1};
+            if (!this.$latched) this.$latched = {};    
+            
+            this.$latched[type] = {args:args, delay:delay || 1};
         }
 
         if (this.cancellables && this.cancellables.contains(type)){
@@ -46,7 +47,7 @@ var IEvents = this.IEvents = new Class({
         type = removeOn(type);
 
         if (this.$latched && this.$latched[type]){
-            fn.delay(this.$latched[delay], this, this.$latched[args]);    
+            fn.delay(this.$latched.delay, this, this.$latched.args);    
         }
 
         return this.parent(type,fn);
@@ -54,3 +55,4 @@ var IEvents = this.IEvents = new Class({
 });
 
 }).apply(this,[]);
+
