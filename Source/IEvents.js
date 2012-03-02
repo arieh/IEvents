@@ -47,7 +47,7 @@ var IEvents = this.IEvents = new Class({
         type = removeOn(type);
 
         if (this.$latched && this.$latched[type]){
-            fn.delay(this.$latched.delay, this, this.$latched.args);    
+            fn.delay(this.$latched[type].delay, this, this.$latched[type].args);    
         }
 
         return this.parent(type,fn);
